@@ -1,22 +1,28 @@
-
 #__author__ = "David J. Alouani, david.alouani@uhhospitals.org, david.j.alouani@gmail.com"
 #__date__ = "January 1, 2021 10:00:00 AM"
 
 # qPCRdeepNet
 
-Building and running qPCRdeepNet docker image:
 
-1) Create a folder where you will have you images, e.g.:
-    /home/johnsmith/myimages. This folder needs to have 2 subfolders: input and output
-    i.e.: /home/johnsmith/myimages/input    &  /home/johnsmith/myimages/output
+#__author__ = "David J. Alouani, david.alouani@uhhospitals.org, david.j.alouani@gmail.com"
+#__date__ = "January 1, 2021 10:00:00 AM"
+# qPCRdeepNet
 
-2) Copy your images to /home/johnsmith/myimages/input/
-   note: images must be in (.png) format. The image size needs to be 299x299 pixels, otherwise the code will resize it to 299x299 pixels.
 
-3) Download the qPCRdeepNet repository from GitHub
+1) Create a folder where you will have you images, e.g.: /home/johnsmith/myimages. This folder needs to have 3 subfolders: input, output, images i.e.: /home/johnsmith/myimages/input,& /home/johnsmith/myimages/output, /home/johnsmith/myimages/images
 
-4) From your linux terminal window, go to the folder you just downloaded, and type: ./run_docker.sh path_to_main_images_folder
-   this path (path_to_main_images_folder) is the same as (/home/johnsmith/myimages). This step simply linkes the image folder outside the container to a data folder inside the container.
-   e.g.:   ./run_docker.sh  /home/johnsmith/myimages
+2) Create text file(s) (tab separated) with Rn values (see examples/input/ folder for sample file). In this file each row represents a series of Ids and list or Rn values, eg.
+==========
+id1     id2     id2     Rn                                                                                                                                                                                                                                                                                                                                   
+sample1 gene1   Assay1  683415.94       686510.56       691409.06       690424.75       690410.8        691440.4        692370.3        692140.7        693066.1        694507  691851.9        693472.75       692769  696196.2        694141.25       694287.2        693789.9        693828.94       693252.1        692890.7        692911.2        693599.6        694958.25       694134  694648.56       693575.25       696802.2        693848.25       692493.8        691407.9        691325  690727.56       691741.1        691339  691134.25       691257.94       690766.94       690680.56       689835.2        690221.94       693917.5        691789.44       689851.3        691586.6        692019.56       690964.8
+===========
 
-5) Once the container is runs it will automatically process any images under the input folder, and generate an output text (.tsv) file (time stamped) under /home/johnsmith/myimages/output   
+3) To building and running qPCRdeepNet docker image. Download the qPCRdeepNet repository from GitHub
+
+4) From your linux terminal window, go to the folder you just downloaded, and type: ./run_docker.sh path_to_main_images_folder this path (path_to_main_images_folder) is the same as (/home/johnsmith/myimages). This step simply links the image folder outside the container to a data folder inside the container. e.g.: ./run_docker.sh /home/johnsmith/myimages
+
+Once the container is runs it will automatically process all Rn text files, and generate both normalized images and ai prediction under /home/johnsmith/myimages/images and /home/johnsmith/myimages/output respectively
+
+Note: qPCRdeepNet does not require gpu to run and generate predictions. It will run on cpu machine ( the option CUDA_VISIBLE_DEVICES="" is set by default).
+
+ 

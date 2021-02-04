@@ -1,0 +1,5 @@
+id1	id2	id3	image	prediction
+sample1	gene1	Assay1	/media/data/images/sample1_gene1_Assay1_rn_values_set1.png	Negative
+sample1	gene2	Assay1	/media/data/images/sample1_gene2_Assay1_rn_values_set1.png	Negative
+sample2	gene1	Assay1	/media/data/images/sample2_gene1_Assay1_rn_values_set1.png	Positive
+sample2	gene2	Assay1	/media/data/images/sample2_gene2_Assay1_rn_values_set1.png	Negative

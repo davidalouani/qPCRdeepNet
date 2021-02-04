@@ -10,6 +10,7 @@ id1     id2     id3     Rn
 sample1 gene1   Assay1  683415.94       686510.56       691409.06       690424.75       690410.8        691440.4        692370.3        692140.7        693066.1        694507  691851.9        693472.75       692769  696196.2        694141.25       694287.2        693789.9        693828.94       693252.1        692890.7        692911.2        693599.6        694958.25       694134  694648.56       693575.25       696802.2        693848.25       692493.8        691407.9        691325  690727.56       691741.1        691339  691134.25       691257.94       690766.94       690680.56       689835.2        690221.94       693917.5        691789.44       689851.3        691586.6        692019.56       690964.8
 
 =========
+Note: user specific column labels (eg. sampleID, wellID, etc..) can be used in these tab seperated files, however, the last labeled column must be labeled "Rn"
 
 3) To build and run qPCRdeepNet docker image, download the qPCRdeepNet repository from GitHub
 

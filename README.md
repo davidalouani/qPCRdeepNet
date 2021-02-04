@@ -4,13 +4,14 @@
 
 # qPCRdeepNet
 
-Building and running the qPCRdeepNet docker image:
+Building and running qPCRdeepNet docker image:
 
-1) create a folder where you will have you images, e.g.:
+1) Create a folder where you will have you images, e.g.:
     /home/johnsmith/myimages. This folder needs to have 2 subfolders: input and output
     i.e.: /home/johnsmith/myimages/input    &  /home/johnsmith/myimages/output
 
-2) copy your images to /home/johnsmith/myimages/input/
+2) Copy your images to /home/johnsmith/myimages/input/
+   note: images must be in (.png) format. The image size needs to be 299x299 pixels, otherwise the code will resize it to 299x299 pixels.
 
 3) Download the qPCRdeepNet repository from GitHub
 
@@ -18,6 +19,4 @@ Building and running the qPCRdeepNet docker image:
    this path (path_to_main_images_folder) is the same as (/home/johnsmith/myimages). This step simply linkes the image folder outside the container to a data folder inside the container.
    e.g.:   ./run_docker.sh  /home/johnsmith/myimages
 
-5) Once the container is running and you can see a new terminal window (with root in the prompt). Type: ./runai.sh
-   if there are any images under /home/johnsmith/myimages/input/ the code will generate text (.tsv file) under /home/johnsmith/myimages/output, with the class prediction for each image
-   Note: The images must be in .png format. The image size needs to be 299x299 pixels, otherwise the code will resize it to 299x299 pixels.
+5) Once the container is runs it will automatically process any images under the input folder, and generate an output text (.tsv) file (time stamped) under /home/johnsmith/myimages/output   

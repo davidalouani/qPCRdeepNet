@@ -14,6 +14,8 @@ RUN apt-get update && apt-get upgrade\
 ENV PATH="/root/miniconda3/bin:${PATH}"
 RUN conda install -y -c conda-forge keras && pip install pandas Pillow matplotlib scipy
 
+RUN pip install tensorflow
+
 COPY qpcrdeepnet /home/qpcrdeepnet
 
 ADD runai.sh /
